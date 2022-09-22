@@ -1,6 +1,6 @@
 {
-    "name": "mezzio/mezzio-router",
-    "description": "Router subcomponent for Mezzio",
+    "name": "mezzio70/mezzio-router",
+    "description": "PHP 7.0 support for Router subcomponent for Mezzio",
     "license": "BSD-3-Clause",
     "keywords": [
         "laminas",
@@ -8,7 +8,8 @@
         "http",
         "middleware",
         "psr",
-        "psr-7"
+        "psr-7",
+        "PHP 7.0"
     ],
     "homepage": "https://mezzio.dev",
     "support": {
@@ -24,9 +25,6 @@
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "composer/package-versions-deprecated": true
-        },
-        "platform": {
-            "php": "7.4.99"
         }
     },
     "extra": {
@@ -35,27 +33,25 @@
         }
     },
     "require": {
-        "php": "^7.4 || ~8.0.0 || ~8.1.0",
+        "php": ">7.0.0",
         "fig/http-message-util": "^1.1.2",
         "psr/container": "^1.0 || ^2.0",
         "psr/http-factory": "^1.0",
         "psr/http-message": "^1.0.1",
         "psr/http-server-middleware": "^1.0",
-        "webmozart/assert": "^1.10"
+        "webmozart/assert": "*"
     },
     "conflict": {
         "mezzio/mezzio": "<3.5",
         "zendframework/zend-expressive-router": "*"
     },
     "require-dev": {
-        "laminas/laminas-coding-standard": "~2.4.0",
-        "laminas/laminas-diactoros": "^2.11",
-        "laminas/laminas-stratigility": "^3.4",
-        "phpspec/prophecy": "^1.9",
-        "phpspec/prophecy-phpunit": "^2.0",
-        "phpunit/phpunit": "^9.5.11",
-        "psalm/plugin-phpunit": "^0.17.0",
-        "vimeo/psalm": "^4.17"
+        "laminas70/laminas-coding-standard": "*",
+        "laminas/laminas-stratigility": "*",
+        "phpspec/prophecy": "*",
+        "phpspec/prophecy-phpunit": "*",
+        "phpunit/phpunit": "^6.5.14",
+        "vimeo/psalm": "*"
     },
     "suggest": {
         "mezzio/mezzio-aurarouter": "^3.0 to use the Aura.Router routing adapter",
@@ -82,5 +78,6 @@
         "static-analysis": "psalm --shepherd --stats",
         "test": "phpunit --colors=always",
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
-    }
+    },
+    "minimum-stability": "dev"
 }

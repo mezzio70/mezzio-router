@@ -13,7 +13,11 @@ class MissingDependencyException extends RuntimeException implements
     ExceptionInterface,
     NotFoundExceptionInterface
 {
-    public static function dependencyForService(string $dependency, string $service): self
+    /**
+     * @param string $dependency
+     * @param string $service
+     */
+    public static function dependencyForService($dependency, $service): self
     {
         return new self(sprintf(
             'Missing dependency "%s" for service "%2$s"; please make sure it is'

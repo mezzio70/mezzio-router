@@ -9,8 +9,8 @@ use function sprintf;
 
 final class DuplicateRouteDetector
 {
-    private const ROUTE_SEARCH_ANY     = 'any';
-    private const ROUTE_SEARCH_METHODS = 'methods';
+    const ROUTE_SEARCH_ANY     = 'any';
+    const ROUTE_SEARCH_METHODS = 'methods';
 
     /**
      * List of all routes indexed by name
@@ -44,14 +44,18 @@ final class DuplicateRouteDetector
      * a DuplicateRouteException indicating a duplicate route.
      *
      * @throws Exception\DuplicateRouteException On duplicate route detection.
+     * @return void
      */
-    public function detectDuplicate(Route $route): void
+    public function detectDuplicate(Route $route)
     {
         $this->throwOnDuplicate($route);
         $this->remember($route);
     }
 
-    private function remember(Route $route): void
+    /**
+     * @return void
+     */
+    private function remember(Route $route)
     {
         $this->routeNames[$route->getName()] = $route;
         if ($route->allowsAnyMethod()) {
@@ -64,7 +68,10 @@ final class DuplicateRouteDetector
         }
     }
 
-    private function throwOnDuplicate(Route $route): void
+    /**
+     * @return void
+     */
+    private function throwOnDuplicate(Route $route)
     {
         if (isset($this->routeNames[$route->getName()])) {
             $this->duplicateRouteDetected($route);
@@ -90,7 +97,10 @@ final class DuplicateRouteDetector
         }
     }
 
-    private function duplicateRouteDetected(Route $duplicate): void
+    /**
+     * @return void
+     */
+    private function duplicateRouteDetected(Route $duplicate)
     {
         $allowedMethods = $duplicate->getAllowedMethods() ?: ['(any)'];
         $name           = $duplicate->getName();
